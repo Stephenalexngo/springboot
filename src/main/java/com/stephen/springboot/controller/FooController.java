@@ -18,12 +18,13 @@ public class FooController {
     }
 
     @RequestMapping(value = "/foo", method = RequestMethod.POST)
-    public ResponseEntity<Object> convertToUpper(@RequestBody Foo foo) {
-        return new ResponseEntity<>(fooService.toUpperCase(foo.getFirstName(), foo.getLastName()), HttpStatus.OK);
+    public ResponseEntity<Foo> convertToUpper(@RequestBody Foo foo) {
+        return new ResponseEntity<>(fooService.toUpperCase(foo), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/foo")
     public ResponseEntity<Object> displayUpper() {
-        return new ResponseEntity<>(fooService.toUpperCase("hello", "There"), HttpStatus.OK);
+        Foo foo = new Foo("hello","there");
+        return new ResponseEntity<>(fooService.toUpperCase(foo), HttpStatus.OK);
     }
 }
