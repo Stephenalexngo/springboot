@@ -19,7 +19,8 @@ public class FilterConfig {
         Map<String, String> initParams = new HashMap<>();
 
         List<String> urlPatterns = new ArrayList<>();
-        urlPatterns.add("/foo");
+        urlPatterns.add("/fooPost");
+        urlPatterns.add("/fooGet");
 
         return filterConfigs(new FooFilter(), urlPatterns, initParams);
     }

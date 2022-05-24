@@ -3,8 +3,6 @@ package com.stephen.springboot.service;
 import com.stephen.springboot.model.Foo;
 import org.springframework.stereotype.Service;
 
-import java.util.Locale;
-
 @Service
 public class FooService {
 
