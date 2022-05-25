@@ -14,14 +14,6 @@ public class Foo {
         this.lastName = lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getFirstName() {
         return firstName;
     }
