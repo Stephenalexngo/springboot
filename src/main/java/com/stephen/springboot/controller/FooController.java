@@ -1,9 +1,8 @@
 package com.stephen.springboot.controller;
 
 import com.stephen.springboot.model.Foo;
-import com.stephen.springboot.service.FooService;
+import com.stephen.springboot.service.impl.FooService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
