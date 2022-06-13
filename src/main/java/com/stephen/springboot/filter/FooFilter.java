@@ -26,7 +26,8 @@ public class FooFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
-        log.info("Logging Request  {} : {}", req.getMethod(), req.getRequestURI());
+        log.info("Logging Request  {} : {} : {}",
+                req.getMethod(), req.getRequestURI(), filterConfig.getFilterName());
 
         chain.doFilter(request, response);
 
