@@ -25,9 +25,8 @@ public class FooController {
     }
 
     @GetMapping(value = "/foo")
-    public ResponseEntity<Object> displayUpper() {
-        Foo foo = new Foo("hello","there");
-        return new ResponseEntity<>(fooService.toUpperCase(foo), HttpStatus.OK);
+    public Foo displayUpper() {
+        return fooService.toUpperCase(new Foo("hello","there"));
     }
 
     public static String sample(String test) {
