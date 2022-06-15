@@ -12,7 +12,7 @@ public class FooControllerTest {
 
     @BeforeAll
     public static void setup() {
-        foo = new Foo("he", "hehe");
+        foo = new Foo(1, "he", "hehe");
     }
 
     @Test

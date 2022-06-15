@@ -2,6 +2,7 @@ package com.stephen.springboot.model;
 
 public class Foo {
 
+    private long userID;
     private String firstName;
     private String lastName;
 
@@ -9,11 +10,15 @@ public class Foo {
         super();
     }
 
-    public Foo(String firstName, String lastName) {
+    public Foo(long userID, String firstName, String lastName) {
+        this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
+    public long getUserID() {
+        return userID;
+    }
     public String getFirstName() {
         return firstName;
     }

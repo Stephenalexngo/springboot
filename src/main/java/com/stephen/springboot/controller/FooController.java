@@ -4,6 +4,7 @@ import com.stephen.springboot.model.Foo;
 import com.stephen.springboot.service.impl.FooService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+//import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,12 +26,12 @@ public class FooController {
     @ResponseStatus(HttpStatus.CREATED)
     // TODO: Make it List<Foo>
     public Foo convertToUpper(@RequestBody Foo foo) {
-        return fooService.toUpperCase(foo);
+        return fooService.insertUpperCase(foo);
     }
 
     @GetMapping(value = "/foo")
     public Foo displayUpper() {
-        return fooService.toUpperCase(new Foo("hello","there"));
+        return fooService.getUpperCase(1L);
     }
 
     public static String sample(String test) {

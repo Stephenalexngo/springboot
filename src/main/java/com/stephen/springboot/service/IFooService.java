@@ -4,5 +4,7 @@ import com.stephen.springboot.model.Foo;
 
 public interface IFooService {
 
-    Foo toUpperCase(Foo foo);
+    Foo getUpperCase(Long id);
+
+    Foo insertUpperCase(Foo otherFoo);
 }
