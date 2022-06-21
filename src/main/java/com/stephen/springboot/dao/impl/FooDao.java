@@ -7,8 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,17 +14,9 @@ import java.util.Optional;
 public class FooDao implements Dao<Foo> {
 
     private final JdbcTemplate jdbcTemplate;
-    private final RowMapper<Foo> fooRowMapper = new RowMapper<Foo>() {
-
-        @Override
-        public Foo mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Foo foo = new Foo(rs.getLong("user_id"),
-                    rs.getString("first_name"),
+    private final RowMapper<Foo> fooRowMapper = (rs, rowNum) ->
+            new Foo(rs.getString("first_name"),
                     rs.getString("last_name"));
-
-            return foo;
-        }
-    };
 
     @Autowired
     public FooDao(JdbcTemplate jdbcTemplate) {
@@ -36,7 +26,7 @@ public class FooDao implements Dao<Foo> {
     // TODO: fix query, use preparedstatement
     @Override
     public Optional<Foo> get(long id) {
-        String query = "SELECT * FROM users WHERE user_id = ?";
+        String query = "SELECT first_name, last_name FROM users WHERE user_id = ?";
 
         Foo foo = jdbcTemplate.queryForObject(query, fooRowMapper, id);
 
@@ -45,7 +35,9 @@ public class FooDao implements Dao<Foo> {
 
     @Override
     public List<Foo> getAll() {
-        return null;
+        String query = "SELECT first_name, last_name FROM users";
+
+        return jdbcTemplate.query(query, fooRowMapper);
     }
 
     // TODO: fix query, use preparedstatement

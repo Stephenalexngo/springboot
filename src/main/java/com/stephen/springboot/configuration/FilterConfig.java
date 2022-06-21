@@ -15,11 +15,12 @@ import java.util.Map;
 public class FilterConfig {
 
     @Bean
-    public FilterRegistrationBean webhooksFilterBean() {
+    public FilterRegistrationBean fooFilterBean() {
         Map<String, String> initParams = new HashMap<>();
 
         List<String> urlPatterns = new ArrayList<>();
         urlPatterns.add("/foo");
+        urlPatterns.add("/fooAll");
 
         return filterConfigs(new FooFilter(), urlPatterns, initParams);
     }

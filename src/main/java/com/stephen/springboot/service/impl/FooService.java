@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,6 +30,11 @@ public class FooService implements IFooService {
     }
 
     @Override
+    public List<Foo> getAllUpperCase() {
+        return fooDao.getAll();
+    }
+
+    @Override
     @Transactional
     public Foo insertUpperCase(Foo otherFoo) {
         Foo convertedFoo = toUpperCase(otherFoo);
@@ -37,9 +43,20 @@ public class FooService implements IFooService {
         return convertedFoo;
     }
 
+    @Override
+    @Transactional
+    public Foo updateUpperCase(Foo otherFoo) {
+        return null;
+    }
+
+    @Override
+    @Transactional
+    public Foo deleteUpperCase(Foo otherFoo) {
+        return null;
+    }
+
     private Foo toUpperCase(Foo otherFoo) {
-        return new Foo(otherFoo.getUserID(),
-                       otherFoo.getFirstName().toUpperCase(),
+        return new Foo(otherFoo.getFirstName().toUpperCase(),
                        otherFoo.getLastName().toUpperCase());
     }
 }
