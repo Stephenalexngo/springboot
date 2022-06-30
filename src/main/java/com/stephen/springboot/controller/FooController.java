@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+// TODO: add custom exception handler
 @RestController
 public class FooController {
 
